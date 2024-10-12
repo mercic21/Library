@@ -41,10 +41,17 @@ newBook.addEventListener("click",function(){
 
 })
 allBooks.addEventListener("click",function(){
- inputsArr.forEach(el =>{
-  display.textContent = `Author: ${el.author} Title: ${el.title} Pages: ${el.pages}`;
-  console.log(`Author: ${el.author} Title: ${el.title} Pages: ${el.pages}`);
+ inputsArr.forEach((el,index)=>{
+  const bookDetails = document.createElement("div");
+  bookDetails.innerHTML = `
+    <p><strong>Book ${index + 1}:</strong></p>
+    <p>Author: ${el.author}</p>
+    <p>Title: ${el.title}</p>
+    <p>Pages: ${el.pages}</p>
+    <hr>
+  `;
+  display.appendChild(bookDetails);
  });
  
-})
+});
 
