@@ -22,7 +22,7 @@ const addToArr = () => {
   const title = document.getElementById("input2").value;
   const pages = document.getElementById("input3").value;
 
-  // e.preventDefault();
+  
 
   const book1 = new Book(author,title,pages);
   inputsArr.push(book1);
@@ -35,23 +35,36 @@ const addToArr = () => {
 addBook.addEventListener("click",addToArr);
 newBook.addEventListener("click",function(){
   modals.style.display = "block";
-  // this.style.display = "none";
-  // allBooks.style.display = "none";
-  // buttons.style.display = "none";
+  
 
 })
 allBooks.addEventListener("click",function(){
+  display.innerHTML="";
  inputsArr.forEach((el,index)=>{
   const bookDetails = document.createElement("div");
+  bookDetails.classList.add("book-card");
+  const deleteBook = (index)=>{
+   inputsArr.splice(index,1);
+   
+  }
+  
+
+  
+    
   bookDetails.innerHTML = `
-    <p><strong>Book ${index + 1}:</strong></p>
-    <p>Author: ${el.author}</p>
-    <p>Title: ${el.title}</p>
-    <p>Pages: ${el.pages}</p>
+    <p class="array"><strong>Book ${index + 1}:</strong></p>
+    <p class="array">Author: ${el.author}</p>
+    <p class="array">Title: ${el.title}</p>
+    <p class="array">Pages: ${el.pages}</p>
+    <button class="deleteBtn">Delete</button>
     <hr>
   `;
+document.querySelectorAll(".deleteBtn").addEventListener("click",() => 
+{
+  deleteBook(index)
+});
+  
   display.appendChild(bookDetails);
  });
- 
 });
 

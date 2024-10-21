@@ -1,3 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+  border: 5px solid black;
+  width: 80vw;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .modals {
     display: none;
+}
+.book-card{
+    border: 1px solid black;
+    max-width: 200px;
+    border-radius: 5px;
+    display: flex;
+    
+    
+}
+.modal1{
+  display: block;
 }
